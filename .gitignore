@@ -1,0 +1,10 @@
+# Qt
+build/
+cmake-build-*/
+*.user
+coverage
+
+# Squish results
+results/
+logs/
+envvars

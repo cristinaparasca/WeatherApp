@@ -1,0 +1,24 @@
+import { RegularExpression, Wildcard } from 'objectmaphelper.js';
+
+export var weatherForecastQQuickWindowQmlImpl = {"title": "Weather Forecast", "type": "QQuickWindowQmlImpl", "unnamed": 1, "visible": true};
+export var weatherForecastSelectLocationButton = {"checkable": false, "container": weatherForecastQQuickWindowQmlImpl, "text": "Select location", "type": "Button", "unnamed": 1, "visible": true};
+export var weatherForecastOverlay = {"container": weatherForecastQQuickWindowQmlImpl, "type": "Overlay", "unnamed": 1, "visible": true};
+export var albaButton = {"checkable": false, "container": weatherForecastOverlay, "text": "▶ Alba", "type": "Button", "unnamed": 1, "visible": true};
+export var albaIuliaText = {"container": weatherForecastOverlay, "text": "Alba Iulia", "type": "Text", "unnamed": 1, "visible": true};
+export var aiudText = {"container": weatherForecastOverlay, "text": "Aiud", "type": "Text", "unnamed": 1, "visible": true};
+export var CityToolBtn_Label = {"container": weatherForecastQQuickWindowQmlImpl, "objectName": "label", "type": "MnemonicLabel", "visible": true};
+export var SelectLocationBtn = {"checkable": false, "container": weatherForecastQQuickWindowQmlImpl, "objectName": "SelectLocationBtn", "text": "Select location", "type": "Button", "visible": true};
+export var blajText = {"container": weatherForecastOverlay, "text": "Blaj", "type": "Text", "unnamed": 1, "visible": true};
+export var HumidityToolBtn_Label = {"container": weatherForecastQQuickWindowQmlImpl, "objectName": "label", "occurrence": 4, "type": "MnemonicLabel", "visible": true};
+export var FeelsLikeToolBtn_Label = {"container": weatherForecastQQuickWindowQmlImpl, "objectName": "label", "occurrence": 3, "type": "MnemonicLabel", "visible": true};
+export var TemperatureToolBtn_Label = {"container": weatherForecastQQuickWindowQmlImpl, "objectName": "label", "occurrence": 2, "type": "MnemonicLabel", "visible": true};
+export var labelMnemonicLabel_3 = {"container": weatherForecastOverlay, "objectName": "label", "occurrence": 3, "type": "MnemonicLabel", "visible": true};
+export var labelMnemonicLabel_2 = {"container": weatherForecastOverlay, "objectName": "label", "occurrence": 4, "type": "MnemonicLabel", "visible": true};
+export var labelMnemonicLabel = {"container": weatherForecastOverlay, "objectName": "label", "occurrence": 2, "type": "MnemonicLabel", "visible": true};
+export var cmpulungText = {"container": weatherForecastOverlay, "text": "Câmpulung", "type": "Text", "unnamed": 1, "visible": false};
+export var countiesListViewListView = {"container": weatherForecastOverlay, "objectName": "countiesListView", "type": "ListView", "visible": true};
+export var cancelButton = {"checkable": false, "container": weatherForecastOverlay, "text": "Cancel", "type": "Button", "unnamed": 1, "visible": true};
+export var albaButton_2 = {"checkable": false, "container": weatherForecastOverlay, "objectName": "county_Alba", "text": "▶ Alba", "type": "Button", "visible": true};
+export var selectLocationDialog = {"container": weatherForecastOverlay, "objectName": "Dialog", "type": "PopupItem", "visible": true};
+export var aradButton = {"checkable": false, "container": weatherForecastOverlay, "objectName": "county_Arad", "text": "▶ Arad", "type": "Button", "visible": true};
+export var qQuickPopupItemContentItem = {"container": weatherForecastOverlay, "objectName": "QQuickPopupItem", "type": "ContentItem", "visible": true};
