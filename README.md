@@ -1,26 +1,26 @@
 # WeatherApp
 
 Qt/QML weather application built with C++ and MVVM. Users can select a county and city and view current weather data including temperature, feels-like temperature, and humidity. The UI updates dynamically when the selected location changes. UI testing is implemented with Squish and UnitTests with Boost.Test.
+<img width="930" height="486" alt="image" src="https://github.com/user-attachments/assets/d447d13f-7228-4b81-b741-b2cdd2318d61" />
+
+
+## Requirements
 
 
 
-\## Requirements
+- Qt + Qt Creator
+
+- CMake
+
+- MinGW 64-bit
+
+- Git
+
+- vcpkg
 
 
 
-\- Qt + Qt Creator
-
-\- CMake
-
-\- MinGW 64-bit
-
-\- Git
-
-\- vcpkg
-
-
-
-\## 1. Install vcpkg
+## 1. Install vcpkg
 
 
 
@@ -36,11 +36,11 @@ bootstrap-vcpkg.bat
 
 
 
-\## 2. Install Boost
+## 2. Install Boost
 
 
 
-The project uses the \*\*x64-mingw-dynamic\*\* triplet:
+The project uses the **x64-mingw-dynamic** triplet:
 
 
 
@@ -62,9 +62,9 @@ D:\\vcpkg\\vcpkg.exe list
 
 
 
-\## 3. Configure Qt Creator
+## 3. Configure Qt Creator
 
-Select a \*\*64-bit MinGW kit\*\* and add the following CMake parameters:
+Select a **64-bit MinGW kit** and add the following CMake parameters:
 
 
 
@@ -76,13 +76,13 @@ VCPKG\_TARGET\_TRIPLET:STRING=x64-mingw-dynamic
 
 ```
 
-The \*\*:PATH\*\* and \*\*:STRING\*\* types are required.
+The **:PATH** and **:STRING** types are required.
 
-Then run \*\*Configure CMake\*\* and \*\*Build Project\*\*.
+Then run **Configure CMake** and **Build Project**.
 
 
 
-\## 4. Clean Build
+## 4. Clean Build
 
 
 
@@ -90,7 +90,7 @@ If you need to recreate the CMake configuration:
 
 
 
-\### CMD:
+### CMD:
 
 ```cmd
 
@@ -98,22 +98,21 @@ rmdir /s /q build
 
 ```
 
-\### PowerShell:
+### PowerShell:
 
 ```cmd
 Remove-Item -Recurse -Force .\\build
 
 ```
 
-Then run \*\*Configure CMake\*\* again.
+Then run **Configure CMake** again.
 
 
 
-\## Toolchain
+## Toolchain
 
 ```
 
 Qt → MinGW 64-bit → CMake → vcpkg → Boost
 
 ```
-
