@@ -1,4 +1,4 @@
-#include "weatherservice.h"
+#include "includes/weatherservice.h"
 
 WeatherService::WeatherService(QObject *parent)
     : IWeatherService{parent}

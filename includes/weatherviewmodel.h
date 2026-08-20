@@ -2,8 +2,8 @@
 #define WEATHERVIEWMODEL_H
 
 #include <QObject>
-#include <iweatherservice.h>
-#include "countriesmodel.h"
+#include <includes/iweatherservice.h>
+#include "includes/countriesmodel.h"
 class WeatherViewModel : public QObject
 {
     Q_OBJECT

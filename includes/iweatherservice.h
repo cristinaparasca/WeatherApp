@@ -1,8 +1,8 @@
 #ifndef IWEATHERSERVICE_H
 #define IWEATHERSERVICE_H
 #include <QObject>
-#include <county.h>
-#include <weatherparser.h>
+#include <includes/county.h>
+#include <includes/weatherparser.h>
 
 class IWeatherService : public QObject
 {

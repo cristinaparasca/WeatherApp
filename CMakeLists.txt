@@ -10,24 +10,24 @@ find_package(Boost CONFIG REQUIRED COMPONENTS unit_test_framework)
 qt_standard_project_setup(REQUIRES 6.10)
 
 qt_add_executable(appWeatherInfoMVVM
-    main.cpp
+    src/main.cpp
 )
 
 qt_add_qml_module(appWeatherInfoMVVM
     URI WeatherInfoMVVM
     QML_FILES
-        Main.qml
-        SOURCES weatherservice.h weatherservice.cpp
-        SOURCES weatherviewmodel.h weatherviewmodel.cpp
-        SOURCES countriesmodel.h countriesmodel.cpp
+        qml/Main.qml
+        SOURCES includes/weatherservice.h src/weatherservice.cpp
+        SOURCES includes/weatherviewmodel.h src/weatherviewmodel.cpp
+        SOURCES includes/countriesmodel.h src/countriesmodel.cpp
         RESOURCES icon/thermometer.png icon/weather.png
         RESOURCES icon/humidity.png
         RESOURCES icon/location-pin.png
         RESOURCES icon/location.png
-        SOURCES county.h
-        SOURCES weatherparser.h weatherparser.cpp
-        SOURCES iweatherservice.h
-        SOURCES fakeweatherservice.h fakeweatherservice.cpp
+        SOURCES includes/county.h
+        SOURCES includes/weatherparser.h src/weatherparser.cpp
+        SOURCES includes/iweatherservice.h
+        SOURCES includes/fakeweatherservice.h src/fakeweatherservice.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -47,19 +47,19 @@ add_executable(appWeatherInfoMVVMTests
     tests/unit/test_weatherparser.cpp
     tests/unit/test_countiesparser.cpp
     tests/unit/test_weatherservice.cpp
-    county.h
-    weatherparser.h
-    weatherparser.cpp
+    includes/county.h
+    includes/weatherparser.h
+    src/weatherparser.cpp
     tests/unit/test_countiesmodel.cpp
-    countriesmodel.cpp
+    src/countriesmodel.cpp
     tests/unit/test_main.cpp
     tests/unit/test_weatherviewmodel.cpp
-    fakeweatherservice.h fakeweatherservice.cpp
-    iweatherservice.h
-    weatherviewmodel.h
-    weatherviewmodel.cpp
-    weatherservice.cpp
-    weatherservice.h
+    includes/fakeweatherservice.h src/fakeweatherservice.cpp
+    includes/iweatherservice.h
+    includes/weatherviewmodel.h
+    src/weatherviewmodel.cpp
+    src/weatherservice.cpp
+    includes/weatherservice.h
 )
 
 target_include_directories(appWeatherInfoMVVMTests

@@ -6,7 +6,7 @@
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonArray>
-#include <county.h>
+#include <includes/county.h>
 
 class CountiesModel : public QAbstractListModel
 {

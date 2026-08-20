@@ -1,4 +1,4 @@
-#include "weatherviewmodel.h"
+#include "includes/weatherviewmodel.h"
 
 #include <QCoreApplication>
 

@@ -1,7 +1,7 @@
 #ifndef FAKEWEATHERSERVICE_H
 #define FAKEWEATHERSERVICE_H
 
-#include "iweatherservice.h"
+#include "includes/iweatherservice.h"
 
 class FakeWeatherService : public IWeatherService
 {

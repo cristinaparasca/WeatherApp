@@ -1,7 +1,7 @@
 #ifndef WEATHERSERVICE_H
 #define WEATHERSERVICE_H
 
-#include <iweatherservice.h>
+#include <includes/iweatherservice.h>
 #include <QQmlEngine>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>

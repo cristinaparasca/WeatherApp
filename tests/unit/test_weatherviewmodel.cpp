@@ -1,6 +1,6 @@
 #include <boost/test/unit_test.hpp>
-#include <weatherviewmodel.h>
-#include <fakeweatherservice.h>
+#include <includes/weatherviewmodel.h>
+#include <includes/fakeweatherservice.h>
 #include <QSignalSpy>
 
 BOOST_AUTO_TEST_SUITE(WeatherViewModelTests)

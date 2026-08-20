@@ -1,10 +1,10 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QtQuick/QQuickView>
-#include <weatherviewmodel.h>
-#include <weatherservice.h>
+#include <includes/weatherviewmodel.h>
+#include <includes/weatherservice.h>
 #include <QQmlContext>
-#include <fakeweatherservice.h>
+#include <includes/fakeweatherservice.h>
 
 int main(int argc, char *argv[])
 {

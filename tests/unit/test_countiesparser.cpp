@@ -1,5 +1,5 @@
 #include <boost/test/unit_test.hpp>
-#include <weatherparser.h>
+#include <includes/weatherparser.h>
 
 BOOST_AUTO_TEST_SUITE(parseCountiesTests)
 BOOST_AUTO_TEST_CASE(sucessfullParse)
