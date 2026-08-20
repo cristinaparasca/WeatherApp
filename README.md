@@ -107,7 +107,37 @@ Remove-Item -Recurse -Force .\\build
 
 Then run **Configure CMake** again.
 
+## 5. Code Coverage
 
+The project uses **gcov** and **gcovr** for code coverage.
+
+### Install gcovr
+
+Check if `gcovr` is already installed:
+
+```cmd
+gcovr --version
+```
+If not, install it with:
+```cmd
+py -m pip install gcovr
+```
+Verify the installation:
+```cmd
+gcovr --version
+```
+
+### Generate Coverage Report
+First, **build the test executable** from Qt Creator.
+Then run the coverage script:
+```cmd
+tests\coverage\coverage.bat
+```
+
+The generated report can be found in:
+```cmd
+coverage-results\coverage.html
+```
 
 ## Toolchain
 

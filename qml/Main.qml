@@ -37,7 +37,7 @@ Window {
                     ToolButton {
                         objectName: "cityToolBtn"
                         text: "City: " + weatherViewModel.city
-                        icon.source: "icon/location.png"
+                        icon.source: "../icon/location.png"
                         background: Rectangle {
                             color: "white"
                             radius: 5
@@ -46,7 +46,7 @@ Window {
                     ToolButton {
                         objectName: "realTemperatureToolBtn"
                         text: "Temperature: " + weatherViewModel.realTemperature + "°C"
-                        icon.source: "icon/thermometer.png"
+                        icon.source: "../icon/thermometer.png"
                         background: Rectangle {
                             color: "white"
                             radius: 5
@@ -56,7 +56,7 @@ Window {
                         objectName: "feelsLikeTemperatureToolBtn"
                         text: "FeelsLike: " + weatherViewModel.feelsLikeTemperature + "°C"
 
-                        icon.source: "icon/thermometer.png"
+                        icon.source: "../icon/thermometer.png"
                         background: Rectangle {
                             color: "white"
                             radius: 5
@@ -65,7 +65,7 @@ Window {
                     ToolButton {
                         objectName: "humidityToolBtn"
                         text: "Humidity: " + weatherViewModel.humidity + "%"
-                        icon.source: "icon/humidity.png"
+                        icon.source: "../icon/humidity.png"
                         icon.color: "cornflowerblue"
                         background: Rectangle {
                             color: "white"

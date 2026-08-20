@@ -2,7 +2,6 @@
 build/
 cmake-build-*/
 *.user
-coverage
 
 # Squish results
 results/
