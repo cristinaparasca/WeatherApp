@@ -1,52 +1,52 @@
-# Squish Setup și Testare Automată pentru aplicația Qt
+# Squish Setup and Automated Testing for the Qt Application
 
-## Configurare inițială
+## Initial Setup
 
-Am descărcat și instalat versiunea de **Squish** compatibilă cu versiunea de **Qt** utilizată de aplicație.
+I downloaded and installed the **Squish** version compatible with the **Qt** version used by the application.
 
-După pornirea Squish:
+After launching Squish:
 
-- Am creat o nouă **Test Suite**.
-- Am configurat **AUT (Application Under Test)** indicând executabilul aplicației.
-- Din **Suite Settings**, am asociat AUT-ul suitei de teste.
-- Am configurat pornirea automată a aplicației la rularea testelor.
+- Created a new **Test Suite**.
+- Configured the **AUT (Application Under Test)** by selecting the application's executable.
+- Assigned the AUT to the test suite from **Suite Settings**.
+- Configured the application to be launched automatically when running the tests.
 
-## Pregătirea executabilului Qt Quick
+## Preparing the Qt Quick Executable
 
-Pentru ca executabilul aplicației Qt Quick să poată fi pornit de Squish, este necesară rularea utilitarului `windeployqt`.
+In order for Squish to launch a Qt Quick application, the `windeployqt` utility must be executed first.
 
-Se deschide consola Qt aferentă versiunii utilizate (ex. din butonul Start `Qt\6.11.1\mingw_64`) și se execută comanda din directorul unde se află executabilul aplicației:
+Open the Qt command prompt corresponding to the Qt version in use (for example from the Start Menu: `Qt\6.11.1\mingw_64`) and run the following command from the directory where the application executable is located:
 
 ```cmd
 windeployqt appWeatherInfoMVVM.exe
 ```
 
-După acest pas, aplicația poate fi pornită atât din Command Prompt, cât și direct de către Squish.
+After this step, the application can be launched both from Command Prompt and directly by Squish.
 
-## Crearea și rularea testelor
+## Creating and Running Tests
 
-Pentru a crea un test:
+To create a test:
 
-1. Se creează un nou **Test Case**.
-2. Se apasă **Record**.
-3. Se execută acțiunile dorite în aplicație.
-4. Squish generează automat codul necesar.
+1. Create a new **Test Case**.
+2. Click **Record**.
+3. Perform the desired actions in the application.
+4. Squish automatically generates the test code.
 
-La rularea testului, acțiunile înregistrate sunt executate automat, iar rezultatul va fi **Success** sau **Failure**, în funcție de comportamentul aplicației.
+When the test is executed, the recorded actions will be replayed automatically and the result will be **Success** or **Failure** depending on the application's behavior.
 
-### Recomandări
+### Recommendations
 
-- Adăugați verificări suplimentare folosind **Object Inspect** pentru a valida valorile obiectelor și stările acestora.
-- Definiți proprietatea `objectName` în QML pentru elementele care trebuie identificate în teste.
-- Mențineți un **Object Map** organizat și folosiți nume sugestive pentru obiecte.
+- Add extra verifications using **Object Inspect** to validate object states and values.
+- Define the `objectName` property in QML for elements that need to be identified in tests.
+- Keep the **Object Map** organized and use meaningful names for mapped objects.
 
-Exemplu:
+Example:
 
 ```text
 weatherForecastSelectLocationButton_2
 ```
 
-poate fi redenumit în:
+can be renamed to:
 
 ```text
 SelectLocationBtn
@@ -54,19 +54,19 @@ SelectLocationBtn
 
 ---
 
-## Dificultăți întâmpinate
+## Challenges Encountered
 
-### Identificarea obiectelor după `objectName`
+### Identifying Objects by `objectName`
 
-Inițial am încercat identificarea obiectelor doar după proprietatea `objectName`, însă acest lucru nu este suficient.
+Initially, I tried identifying objects using only the `objectName` property, but this is not sufficient.
 
-Este necesară cel puțin combinația dintre `objectName` și `type`:
+At minimum, both `objectName` and `type` should be used:
 
 ```javascript
 var listView = waitForObject("{name='countiesListView' type='QQuickListView'}");
 ```
 
-În anumite cazuri este necesară și specificarea containerului:
+In some cases, the container must also be specified:
 
 ```javascript
 var countyFoundObj = waitForObject({
@@ -76,50 +76,50 @@ var countyFoundObj = waitForObject({
 });
 ```
 
-`names` reprezintă obiectul exportat de Squish care conține elementele definite în **Object Map**.
+`names` is the object exported by Squish that contains the symbolic names defined in the **Object Map**.
 
-Pentru a vedea toate proprietățile disponibile ale unui obiect, aplicația poate fi rulată în **Debug Mode** din Squish.
+### Inspecting Object Properties
 
-După ce obiectul este localizat în arborele de obiecte (**Object Tree**):
+To see all available properties of an object, the application can be run in **Debug Mode** from Squish.
 
-1. Selectează obiectul dorit.
-2. Apasă click dreapta pe acesta.
-3. Alege opțiunea **Copy Real Name**.
+After locating the object in the **Object Tree**:
 
-### Probleme de sincronizare cu ListView
+1. Select the desired object.
+2. Right-click on it.
+3. Choose **Copy Real Name**.
 
-Am întâmpinat probleme de sincronizare la interacțiunea cu un `ListView` care își expandează elementele la click.
+The copied value contains all the properties Squish uses to identify the object and can be very useful when building `waitForObject()` expressions or troubleshooting object recognition issues.
 
-Inițial acestea puteau fi rezolvate doar folosind:
+### ListView Synchronization Issues
+
+I experienced synchronization issues when interacting with a `ListView` whose items expand when clicked.
+
+Initially, the only reliable solution was:
 
 ```javascript
 snooze()
 ```
 
-Am încercat și alte metode:
+I also tried:
 
-- verificarea proprietății `visible`
-- verificarea proprietății `expanded`
-- sincronizarea pe baza altor elemente din interfață
+- checking the `visible` property
+- checking the `expanded` property
+- synchronizing against other UI elements
 
-Aceste abordări nu au fost suficiente.
+None of these approaches proved reliable enough.
 
-Soluția care s-a dovedit fiabilă a fost implementarea unui **retry pentru click-ul care realizează expand-ul**. În anumite situații, elementele listei nu sunt complet randate la primul click, iar repetarea acțiunii rezolvă problema.
+The solution that worked consistently was implementing a **retry mechanism for the click that triggers the expansion**. In some situations, the list items are not fully rendered when the first click occurs, and repeating the action resolves the issue.
 
 ---
 
-## Teste implementate
+## Implemented Tests
 
-Pentru rularea testelor a fost utilizat argumentul **fake-service**, astfel încât aplicația să folosească date mock și rezultate predictibile.
+The application was launched with the **fake-service** argument so that all tests ran against mock data with predictable results.
 
-Au fost implementate și rulate cu succes următoarele teste:
+The following tests were successfully implemented:
 
-- verificarea populării corecte a listei de județe (`countyList`)
-- verificarea actualizării informațiilor meteo după dublu click pe un oraș
-- verificarea închiderii dialogului după selectarea unui oraș
-- verificarea funcționalității de expand/collapse pentru `ListView`
-- executarea a trei actualizări consecutive și verificarea actualizării corecte a label-ului care afișează orașul selectat
-
-## Concluzie
-
-Squish oferă o modalitate rapidă și eficientă de automatizare a testelor pentru aplicațiile Qt. Pentru rezultate stabile și teste ușor de întreținut este recomandată utilizarea consecventă a proprietății `objectName`, organizarea Object Map-ului și tratarea explicită a situațiilor de sincronizare din interfață.
+- Verify that the county list (`countyList`) is populated correctly.
+- Verify that weather information labels are updated after double-clicking a city.
+- Verify that the city selection dialog closes after a city is selected.
+- Verify the expand/collapse behavior of the `ListView`.
+- Perform three consecutive updates and verify that the selected city label is updated correctly each time.
